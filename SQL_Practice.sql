@@ -79,6 +79,51 @@ CREATE table Employees (
  ;
  
  SELECT * FROM Employees;
+ SELECT Name , City 
+ FROM Students 
+ WHERE Age <= 22;
+ SELECT ID, Name, Age
+ FROM Students
+ WHERE City = 'Pune';
+ SELECT Name 
+ FROM Students
+ WHERE City = 'Jaipur' AND Age = 21;
+ 
+ SELECT EmpName, Salary
+ FROM Employees;
+ SELECT * FROM Employees
+ Where Salary > 20000;
+ SELECT * FROM Employees
+ WHERE Department = 'Finance';
+ SELECT EmpName, Department
+ FROM Employees
+ WHERE Salary >= 18000;
+ SELECT * FROM Employees
+ WHERE Salary < 25000;
+ SELECT EmpName FROM Employees
+ WHERE Department = 'HR' AND Salary = 25000;
+ SELECT EmpID, EmpName, Salary
+ FROM Employees 
+ WHERE Salary > 15000 AND Salary < 23000;
+ SELECT Department FROM Employees
+ WHERE EmpName = 'Raj' ;
+ SELECT * FROM Employees
+ WHERE Department = 'Sales' AND Salary = 15000;
+ SELECT * FROM Employees
+ WHERE Department = 'HR' OR Department = 'Finance';
+ SELECT * FROM Employees
+ WHERE Salary > 18000 AND Department = 'Game Developer';
+ SELECT * FROM Employees
+ WHERE Department = 'Finance' OR Salary = 25000;
+ SELECT * FROM Employees
+ Where NOT Department = 'Sales';
+ SELECT * FROM Employees
+ WHERE Salary > 18000 AND Salary < 25000;
+ SELECT * FROM Employees
+ WHERE Department = 'Finance' OR Department = 'HR' 
+ AND Salary >= 20000;
+ SELECT * FROM Employees
+ WHERE NOT Department = 'Game Developer' AND Salary < 23000;
 
 
 
