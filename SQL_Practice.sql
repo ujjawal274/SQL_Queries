@@ -123,6 +123,47 @@ CREATE table Employees (
  WHERE Department = 'Finance' OR Department = 'HR' 
  AND Salary >= 20000;
  SELECT * FROM Employees
+WHERE NOT Department = 'Game Developer' AND Salary < 23000;
+ 
+ SELECT * FROM Employees
+ WHERE Department = 'Sales' AND Salary = 15000;
+ 
+ SELECT * FROM Employees
+ WHERE Department = 'HR' AND Salary = 20000;
+ SELECT * FROM Employees
+ WHERE Department = 'Game Developer' AND Salary = 23000;
+ SELECT *
+FROM Employees
+WHERE NOT (Department = 'HR' OR Salary > 20000);
+
+SELECT EmpName ,Department 
+FROM Employees;
+SELECT * FROM Employees
+WHERE Salary = 20000;
+SELECT EmpName, Salary
+FROM Employees
+WHERE Department = 'HR';
+SELECT * FROM Employees
+WHERE Salary > 18000;
+
+SELECT * FROM Employees
+WHERE Department = 'Finance' AND Salary = 20000;
+SELECT * FROM Employees
+WHERE Department = 'Sales' OR Department = 'HR';
+SELECT EmpID, EmpName, Salary
+FROM Employees
+WHERE Salary > 15000 AND Salary < 25000;
+SELECT EmpName, Department
+FROM Employees
+WHERE Department != 'Game Developer';
+
+SELECT * FROM Employees
+WHERE (Department = 'Finance' OR Department = 'HR')
+AND Salary >= 20000;
+SELECT EmpName FROM Employees
+WHERE Salary < 23000 
+AND Department != 'Sales' ;
+     
  WHERE NOT Department = 'Game Developer' AND Salary < 23000;
 
 
