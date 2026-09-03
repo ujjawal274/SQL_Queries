@@ -307,6 +307,185 @@ ORDER BY rating DESC, itemname ASC;
 SELECT * FROM restaurant
 ORDER BY category ASC, price DESC;
 
+ /*
+✅ LIMIT  */
+
+SELECT * FROM restaurant
+LIMIT 5;
+SELECT * FROM restaurant 
+ORDER BY price DESC 
+LIMIT 3;
+SELECT itemname, rating
+FROM restaurant
+ORDER BY rating DESC
+LIMIT 4;
+
+SELECT * FROM restaurant
+ORDER BY price ASC
+LIMIT 4;
+SELECT itemname, price
+FROM restaurant 
+ORDER BY price DESC
+LIMIT 5;
+SELECT * FROM restaurant
+WHERE available= 'Yes'
+ORDER BY price DESC
+LIMIT 3;
+SELECT * FROM restaurant
+WHERE category= 'Beverage'
+ORDER BY rating DESC
+LIMIT 2;
+SELECT * FROM restaurant
+WHERE price BETWEEN 100 AND 250
+ORDER BY rating ASC
+LIMIT 3;
+SELECT * FROM restaurant
+WHERE available= 'Yes'
+ORDER BY rating DESC
+LIMIT 5;
+SELECT * FROM restaurant
+WHERE category ='Pizza' OR category= 'Pasta'
+ORDER BY price DESC
+LIMIT 2;
+SELECT * FROM restaurant
+WHERE category IN ('Burger' ,'Beverage')
+ORDER BY price ASC
+LIMIT 3;
+
+ /*
+✅ DISTINCT */
+
+SELECT DISTINCT category FROM restaurant;
+SELECT DISTINCT rating FROM restaurant;
+SELECT DISTINCT category ,available FROM restaurant;
+
+SELECT DISTINCT available FROM restaurant;
+SELECT DISTINCT category ,rating FROM restaurant;
+SELECT DISTINCT category FROM restaurant
+WHERE available= 'Yes' ;
+SELECT DISTINCT rating FROM restaurant
+WHERE price BETWEEN 100 AND 250;
+SELECT DISTINCT available FROM restaurant
+WHERE category= 'Beverage';
+SELECT DISTINCT category FROM restaurant
+ORDER BY category ASC;
+SELECT DISTINCT rating  FROM restaurant
+WHERE available= 'Yes'
+ORDER BY rating DESC;
+SELECT DISTINCT price FROM restaurant
+WHERE category IN ('Burger' ,'Beverage')
+ORDER BY price ASC;
+
+ /*
+✅ 5 Aggregate Functions */
+
+SELECT count(*) FROM restaurant;
+SELECT sum(price) FROM restaurant;
+SELECT AVG(rating) FROM restaurant;
+SELECT min(price) FROM restaurant;
+SELECT max(price) FROM restaurant;
+
+SELECT sum(price) FROM restaurant
+WHERE category= 'Beverage' ;
+SELECT count(*) FROM restaurant
+WHERE available= 'Yes';
+SELECT avg(price) FROM restaurant
+WHERE category= 'Burger';
+SELECT max( rating) FROM restaurant
+WHERE available= 'NO';
+SELECT min(rating) FROM restaurant
+WHERE price BETWEEN 150 AND 300;
+
+/* Mobile_Store */
+
+CREATE TABLE MobileStore (
+    MobileID INT PRIMARY KEY,
+    Brand VARCHAR(30),
+    Model VARCHAR(50),
+    Price INT,
+    RAM INT,
+    Storage INT,
+    Rating DECIMAL(2,1),
+    InStock VARCHAR(5)
+);
+
+INSERT INTO MobileStore
+(MobileID, Brand, Model, Price, RAM, Storage, Rating, InStock)
+VALUES
+(101, 'Samsung', 'Galaxy A35', 28999, 8, 128, 4.5, 'Yes'),
+(102, 'Apple', 'iPhone 15', 79999, 6, 128, 4.8, 'Yes'),
+(103, 'OnePlus', 'Nord CE 4', 24999, 8, 256, 4.4, 'Yes'),
+(104, 'Xiaomi', 'Redmi Note 13', 18999, 6, 128, 4.2, 'No'),
+(105, 'Realme', 'Narzo 70', 16999, 8, 128, 4.1, 'Yes'),
+(106, 'Vivo', 'V30', 33999, 12, 256, 4.6, 'Yes'),
+(107, 'Oppo', 'Reno 11', 29999, 8, 256, 4.3, 'No'),
+(108, 'Motorola', 'Edge 50 Fusion', 27999, 12, 256, 4.7, 'Yes'),
+(109, 'Google', 'Pixel 8a', 52999, 8, 128, 4.8, 'Yes'),
+(110, 'Nothing', 'Phone 2a', 23999, 8, 256, 4.5, 'Yes'),
+(111, 'Samsung', 'Galaxy M35', 21999, 6, 128, 4.3, 'Yes'),
+(112, 'Apple', 'iPhone 14', 69999, 6, 128, 4.7, 'No'),
+(113, 'OnePlus', '11R', 39999, 16, 256, 4.8, 'Yes'),
+(114, 'Xiaomi', 'Redmi 13', 14999, 6, 128, 4.0, 'Yes'),
+(115, 'Realme', 'GT 6T', 35999, 12, 256, 4.6, 'Yes'),
+(116, 'Vivo', 'T3 Pro', 26999, 8, 256, 4.4, 'No'),
+(117, 'Oppo', 'A79', 19999, 8, 128, 4.2, 'Yes'),
+(118, 'Motorola', 'Moto G85', 17999, 8, 128, 4.3, 'Yes'),
+(119, 'Google', 'Pixel 7a', 42999, 8, 128, 4.7, 'No'),
+(120, 'Nothing', 'Phone 2', 44999, 12, 256, 4.8, 'Yes');
+
+SELECT * FROM mobilestore;
+
+SELECT count(*) FROM mobilestore;
+SELECT sum(price) FROM mobilestore;
+SELECT avg(rating) FROM mobilestore
+WHERE brand= 'Samsung';
+SELECT max(price) FROM mobilestore
+WHERE instock= 'Yes';
+SELECT min(price) FROM mobilestore 
+WHERE ram= 8;
+SELECT count(*) FROM mobilestore
+WHERE price BETWEEN 20000 AND 40000;
+SELECT sum(price) FROM mobilestore
+WHERE brand IN ('Apple' ,'Samsung' );
+SELECT avg(price) FROM mobilestore
+WHERE storage= 256 AND instock= 'Yes' ;
+
+SELECT count(*) AS Total_Mobiles FROM mobilestore;
+SELECT count(*) AS Samsung_Brand_Mobiles  FROM mobilestore WHERE brand= 'Samsung';
+SELECT count(*) AS Expensive_Mobiles FROM mobilestore WHERE price > 30000;
+SELECT sum(price) AS Total_Price FROM mobilestore;
+SELECT sum(price) AS Total_Price_Of_Apple FROM mobilestore WHERE brand= 'Apple';
+SELECT avg(price) AS AVG_PRICE_OF_ONEPLUS FROM mobilestore WHERE brand= 'OnePlus';
+SELECT max(rating) AS HIGHEST_RATING_MOBILE FROM mobilestore WHERE instock= 'Yes';
+SELECT min(price) AS lowest_Price_256 FROM mobilestore WHERE storage= 256;
+
+SELECT COUNT(*) AS Samsung_Mobiles FROM mobilestore 
+WHERE brand= 'Samsung' ;
+SELECT SUM(price) AS Apple_Total_Price FROM mobilestore
+WHERE brand= 'Apple' ;
+SELECT model, price FROM mobilestore
+WHERE price > 30000 ORDER BY price DESC;
+SELECT count(*) AS Total_Mobile FROM mobilestore WHERE ram= 8 AND storage= 256;
+SELECT avg(rating)  AS Avg_Rating FROM mobilestore WHERE brand IN ('Samsung' ,'OnePlus');
+SELECT brand, model, price FROM mobilestore WHERE price BETWEEN 20000 AND 40000
+ORDER BY price ASC;
+SELECT max(price) AS Expensive_Mobile FROM mobilestore WHERE instock= 'Yes' AND storage= 256;
+SELECT count(*) AS Android_IN_Budget FROM mobilestore WHERE brand != 'Apple' AND price < 30000;
+SELECT DISTINCT brand FROM mobilestore WHERE rating >= 4.5 ORDER BY brand ASC;
+SELECT avg(price) FROM mobilestore 
+WHERE brand IN ('Samsung' ,'OnePlus' ,'Motorola') 
+AND price BETWEEN 20000 AND 40000 AND instock= 'Yes' AND ( storage= 256 OR ram= 12);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
