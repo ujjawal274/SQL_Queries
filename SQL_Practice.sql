@@ -476,6 +476,81 @@ SELECT avg(price) FROM mobilestore
 WHERE brand IN ('Samsung' ,'OnePlus' ,'Motorola') 
 AND price BETWEEN 20000 AND 40000 AND instock= 'Yes' AND ( storage= 256 OR ram= 12);
 
+/*
+✅ GROUP BY */
+
+SELECT brand , count(*) AS Total_Mobiles FROM mobilestore GROUP BY brand;
+SELECT brand , avg(price) AS Avg_Price FROM mobilestore GROUP BY brand;
+SELECT brand , max(price) AS Highest_Price FROM mobilestore GROUP BY brand;
+SELECT brand , min(price) AS Lowest_Price FROM mobilestore GROUP BY brand;
+SELECT ram , count(*) AS Total_Mobiles FROM mobilestore GROUP BY ram;
+SELECT storage, avg(price) AS Avg_Price FROM mobilestore GROUP BY storage;
+SELECT brand, max(rating) AS Highest_Rating FROM mobilestore GROUP BY brand;
+SELECT instock, count(*) AS Total_Mobile FROM mobilestore GROUP BY instock;
+
+SELECT brand, count(*) AS Total_Mobile FROM mobilestore 
+GROUP BY brand 
+ORDER BY brand ASC;
+SELECT brand, avg(price) AS Avg_Price FROM mobilestore
+GROUP BY brand 
+ORDER BY avg(price) DESC;
+SELECT ram, count(*) AS Total_Mobile FROM mobilestore 
+WHERE instock= 'Yes'
+GROUP BY ram ;
+SELECT storage, max(price) AS Highest_Price FROM mobilestore
+WHERE price > 20000
+GROUP BY storage;
+SELECT brand, min(rating) FROM mobilestore 
+WHERE storage= 256
+GROUP BY brand;
+SELECT brand, count(*) AS Total_Mobiles FROM mobilestore
+WHERE price BETWEEN 20000 AND 40000
+GROUP BY brand
+ORDER BY Total_Mobiles DESC;
+SELECT ram, avg(price) AS Avg_Price FROM mobilestore 
+WHERE brand IN ('Samsung','OnePlus','Motorola')
+GROUP BY ram;
+SELECT brand, max(rating) AS Highest_Rating FROM mobilestore 
+WHERE instock= 'Yes'
+AND price > 20000
+GROUP BY brand
+ORDER BY max(rating) DESC;
+
+
+ /*
+✅ HAVING Clause */
+
+SELECT brand, count(*) AS Total_Mobiles FROM mobilestore 
+GROUP BY brand
+HAVING Total_Mobiles >= 2;
+SELECT ram, avg(price) AS Avg_Price FROM mobilestore
+GROUP BY ram
+HAVING Avg_Price > 30000;
+SELECT storage, max(price) AS Highest_Price FROM mobilestore
+GROUP BY storage
+HAVING Highest_Price > 50000;
+SELECT brand, min(rating) AS min_rating FROM mobilestore
+GROUP BY brand
+HAVING min(rating) >= 4.5;
+SELECT brand, count(*) AS total_mobile FROM mobilestore
+WHERE instock= 'Yes'
+GROUP BY brand
+HAVING count(*) >= 2;
+SELECT ram, avg(price) AS Avg_Price FROM mobilestore
+WHERE price > 20000 
+GROUP BY ram
+HAVING avg(price) > 30000;
+SELECT storage, count(*) AS total_mobile FROM mobilestore
+WHERE brand IN ( 'Samsung' ,'Oneplus' ,'Apple')
+GROUP BY storage
+HAVING count(*) >= 3;
+SELECT brand, max(rating) AS highest_rating FROM mobilestore
+WHERE instock= 'Yes' AND price BETWEEN 20000 AND 50000 
+GROUP BY brand
+HAVING highest_rating >= 4.6
+ORDER BY highest_rating DESC;
+
+
 
 
 
