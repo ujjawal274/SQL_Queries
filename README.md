@@ -54,6 +54,9 @@ README.md
 ### 8. IN Operator
 - Filtering multiple values using IN
 
+### 9. BETWEEN Operator
+- Filtering multiple values using BETWEEN
+
 ---
 
 ## 🗃 Database Schema
