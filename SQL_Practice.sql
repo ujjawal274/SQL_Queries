@@ -550,6 +550,98 @@ GROUP BY brand
 HAVING highest_rating >= 4.6
 ORDER BY highest_rating DESC;
 
+ /*
+✅ JOIN */
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50),
+    City VARCHAR(30)
+);
+
+INSERT INTO Customers
+(CustomerID, CustomerName, City)
+VALUES
+(1, 'Rahul', 'Delhi'),
+(2, 'Aman', 'Mumbai'),
+(3, 'Neha', 'Pune'),
+(4, 'Priya', 'Jaipur'),
+(5, 'Rohan', 'Lucknow'),
+(6, 'Anjali', 'Delhi'),
+(7, 'Karan', 'Chandigarh'),
+(8, 'Simran', 'Amritsar'),
+(9, 'Vikas', 'Indore'),
+(10, 'Pooja', 'Bhopal');
+
+SELECT * FROM customers;
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    ProductName VARCHAR(50),
+    Amount DECIMAL(10,2)
+);
+
+INSERT INTO Orders
+(OrderID, CustomerID, ProductName, Amount)
+VALUES
+(101, 1, 'Laptop', 65000),
+(102, 2, 'Keyboard', 1500),
+(103, 3, 'Mouse', 800),
+(104, 4, 'Monitor', 12000),
+(105, 5, 'Printer', 9000),
+(106, 6, 'Headphones', 2500),
+(107, 7, 'SSD', 4500),
+(108, 8, 'Webcam', 3000),
+(109, 9, 'Tablet', 22000),
+(110, 10, 'Speaker', 5000);
+
+SELECT customername, productname
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID;
+SELECT customerName, city, amount 
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID;
+SELECT customerName, productName, amount
+FROM customers 
+INNER JOIN orders
+ON customers.customerID = orders.customerID
+WHERE amount > 10000;
+SELECT customerName, productName, amount
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID
+WHERE city= 'Delhi';
+SELECT CustomerName, ProductName, Amount
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID
+WHERE Amount BETWEEN 2000 AND 10000;
+SELECT customerName, city, productName, Amount
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID
+ORDER BY amount DESC;
+SELECT customerName, city, productName
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID
+WHERE city IN ('Mumbai' , 'Delhi')
+ORDER BY customerName ASC;
+SELECT customerName, productName, amount
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID
+WHERE amount > 3000 AND city != 'Delhi'
+ORDER BY amount DESC, customerName ASC;
+-- by me --
+SELECT * 
+FROM customers
+INNER JOIN orders
+ON customers.customerID = orders.customerID ;
+
 
 
 
