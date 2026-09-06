@@ -116,6 +116,6 @@ After completing this script, you will understand:
 
 ---
 
-## 👨‍💻 Author :- Ujjawal Kumar 
+## 👨‍💻 Author :- Ujjawal Kumar !
 
 Created as part of SQL practice for learning Database Management Systems (DBMS).
