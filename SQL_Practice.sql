@@ -642,6 +642,55 @@ FROM customers
 INNER JOIN orders
 ON customers.customerID = orders.customerID ;
 
+/*
+✅ LEFT JOIN */
+
+INSERT INTO Customers
+(CustomerID, CustomerName, City)
+VALUES
+(11, 'Deepak', 'Noida'),
+(12, 'Meera', 'Surat');
+
+SELECT customerName , productName
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID ;
+SELECT customerName , city , productName
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID ;
+SELECT customerName , productName
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID 
+WHERE city = 'Delhi' ;
+SELECT customerName , productName , amount
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID 
+ORDER BY customername ASC;
+SELECT customername , city , productname
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID 
+WHERE city IN ('Delhi' ,'Mumbai' );
+SELECT customerName, city
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID 
+WHERE orders.customerID IS NULL ;
+SELECT count(*) 
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID 
+WHERE orders.customerID IS NULL ;
+SELECT customerName ,city ,productName ,amount
+FROM customers
+LEFT JOIN orders
+ON customers.customerID = orders.customerID 
+ORDER BY customerName ASC ,amount DESC ;
+
+
 
 
 
