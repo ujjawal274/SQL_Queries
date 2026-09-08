@@ -106,6 +106,7 @@ After completing this script, you will understand:
 - Applying comparison operators
 - Using logical operators (AND, OR, NOT)
 - Using the IN operator
+- Using the BETWEEN operator
 
 ---
 
