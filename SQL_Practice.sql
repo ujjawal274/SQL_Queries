@@ -699,11 +699,11 @@ VALUES
 (111, 15, 'Smart Watch', 7000),
 (112, 16, 'Gaming Mouse', 2500);
 
-/*
+
 SELECT *
 FROM customers
 RIGHT JOIN orders
-ON customers.customerID = orders.customerID ; */
+ON customers.customerID = orders.customerID ;
 
 SELECT customerName, productName 
 FROM customers
