@@ -690,6 +690,61 @@ LEFT JOIN orders
 ON customers.customerID = orders.customerID 
 ORDER BY customerName ASC ,amount DESC ;
 
+/*
+✅ RIGHT JOIN */
+
+INSERT INTO Orders
+(OrderID, CustomerID, ProductName, Amount)
+VALUES
+(111, 15, 'Smart Watch', 7000),
+(112, 16, 'Gaming Mouse', 2500);
+
+/*
+SELECT *
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID ; */
+
+SELECT customerName, productName 
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID ;
+SELECT customerName, productName, amount
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID;
+SELECT customerName, productName, amount
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID
+WHERE amount > 5000;
+SELECT customerName ,productName ,amount
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID 
+ORDER BY amount DESC ;
+SELECT customerName, productName, amount
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID
+WHERE amount BETWEEN 2000 AND 10000;
+SELECT productName, amount
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID
+WHERE customers.customerID IS NULL;
+SELECT count(*)
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID
+WHERE customers.customerID IS NULL;
+SELECT customerName, productName, amount
+FROM customers
+RIGHT JOIN orders
+ON customers.customerID = orders.customerID 
+WHERE amount > 2000
+ORDER BY amount DESC, productName ASC;
+
 
 
 
