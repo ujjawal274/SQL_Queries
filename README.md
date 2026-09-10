@@ -109,6 +109,7 @@ After completing this script, you will understand:
 - Using the BETWEEN operator
 - Using GROUP BY
 - Using Having
+FIHIOGHDIIFDHGDKGKH
 
 ---
 
