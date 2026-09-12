@@ -276,6 +276,7 @@ AND (Price BETWEEN 250 AND 500);
 
  /*
 ✅ ORDER BY  */
+/* Hello ! */
 
 SELECT * FROM Restaurant 
 ORDER BY price ASC;
