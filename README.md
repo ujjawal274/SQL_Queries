@@ -879,7 +879,7 @@ This practice repository demonstrates my progression from basic SQL syntax to re
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Author - Ujjawal
 
 ****
 
